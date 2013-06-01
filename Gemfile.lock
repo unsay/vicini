@@ -74,6 +74,7 @@ GEM
       railties (>= 3.0.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
+    geocoder (1.1.8)
     haml (4.0.3)
       tilt
     haml-rails (0.4)
@@ -227,6 +228,7 @@ DEPENDENCIES
   capybara-webkit
   coffee-rails (~> 4.0.0.beta1)
   factory_girl_rails
+  geocoder
   haml-rails
   jbuilder (~> 1.0.1)
   jquery-rails

@@ -7,6 +7,6 @@ class AddUserAttributes < ActiveRecord::Migration
     add_column :users, :address2, :string
     add_column :users, :city, :string
     add_column :users, :state, :string
-    add_column :users, :zip, :intger
+    add_column :users, :zip, :integer
   end
 end

@@ -35,6 +35,7 @@ group :development do
   gem 'letter_opener'
   gem 'rails_view_annotator'
   gem 'sqlite3'
+  gem 'thin'
 end
 
 group :test do
@@ -51,4 +52,5 @@ end
 
 group :production do
   gem 'pg'
+  gem 'unicorn'
 end

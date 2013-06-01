@@ -37,7 +37,6 @@ group :development do
 end
 
 group :test do
-  gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'resque_spec'
   gem 'rspec-rails'

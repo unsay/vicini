@@ -5,6 +5,7 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.beta1'
 
+gem 'acts-as-taggable-on'
 gem 'geocoder'
 gem 'haml-rails'
 gem 'sorcery', git: 'git://github.com/NoamB/sorcery.git' # master branch for Rail 4

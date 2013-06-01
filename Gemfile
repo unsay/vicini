@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.beta1'
 
+gem 'sorcery', git: 'git://github.com/NoamB/sorcery.git' # master branch for Rail 4
+
 gem 'sqlite3'
 
 # Gems used only for assets and not required

@@ -103,6 +103,7 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    pg (0.15.1)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-protection (1.5.0)
@@ -220,6 +221,7 @@ DEPENDENCIES
   jbuilder (~> 1.0.1)
   jquery-rails
   letter_opener
+  pg
   rails (= 4.0.0.beta1)
   rails_view_annotator
   resque_spec

@@ -10,8 +10,6 @@ gem 'haml-rails'
 gem 'sorcery', git: 'git://github.com/NoamB/sorcery.git' # master branch for Rail 4
 gem 'simple_form'
 
-gem 'sqlite3'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -36,6 +34,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'letter_opener'
   gem 'rails_view_annotator'
+  gem 'sqlite3'
 end
 
 group :test do
@@ -50,3 +49,6 @@ group :test do
   gem 'vcr'
 end
 
+group :production do
+  gem 'pg'
+end

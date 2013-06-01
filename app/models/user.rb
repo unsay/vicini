@@ -3,4 +3,6 @@ class User < ActiveRecord::Base
   geocoded_by :address1
 
   after_validation :geocode
+
+  has_many :messages
 end

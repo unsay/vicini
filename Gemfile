@@ -8,6 +8,7 @@ gem 'rails', '4.0.0.beta1'
 gem 'acts-as-taggable-on'
 gem 'geocoder'
 gem 'haml-rails'
+gem 'pg'
 gem 'sorcery', git: 'git://github.com/NoamB/sorcery.git' # master branch for Rail 4
 gem 'simple_form'
 
@@ -35,7 +36,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'letter_opener'
   gem 'rails_view_annotator'
-  gem 'sqlite3'
   gem 'thin'
 end
 
@@ -52,6 +52,5 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'unicorn'
 end

@@ -44,15 +44,6 @@ GEM
     binding_of_caller (0.7.1)
       debug_inspector (>= 0.0.1)
     builder (3.1.4)
-    capybara (2.1.0)
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
-    capybara-webkit (1.0.0)
-      capybara (~> 2.0, >= 2.0.2)
-      json
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -105,7 +96,6 @@ GEM
     mono_logger (1.1.0)
     multi_json (1.7.4)
     multipart-post (1.2.0)
-    nokogiri (1.5.9)
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -216,8 +206,6 @@ GEM
     webmock (1.11.0)
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
-    xpath (2.0.0)
-      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -225,7 +213,6 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  capybara-webkit
   coffee-rails (~> 4.0.0.beta1)
   factory_girl_rails
   geocoder

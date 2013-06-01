@@ -35,6 +35,9 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
+  gem 'pry'
+  gem 'pry-awesome_print'
+  gem 'quiet_assets'
   gem 'rails_view_annotator'
   gem 'thin'
 end

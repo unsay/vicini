@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130601231021) do
+ActiveRecord::Schema.define(version: 20130601232622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "listenings", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "radius"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "messages", force: true do |t|
     t.datetime "created_at"
@@ -22,6 +29,13 @@ ActiveRecord::Schema.define(version: 20130601231021) do
     t.integer  "user_id",    null: false
     t.string   "subject"
     t.text     "body"
+  end
+
+  create_table "speakings", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "radius"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", force: true do |t|

@@ -4,3 +4,10 @@
 require File.expand_path('../config/application', __FILE__)
 
 Vicini::Application.load_tasks
+
+begin
+  require "rspec/core/rake_task"
+  RSpec::Core::RakeTask.new(:spec)
+  task :default => :spec
+rescue LoadError
+end

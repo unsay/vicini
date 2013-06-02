@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
-  acts_as_geolocated
+  #acts_as_geolocated
 
   geocoded_by :full_address_for_geocoding
 

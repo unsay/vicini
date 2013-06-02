@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
   after_validation :geocode
 
   has_many :messages
+  has_many :listenings
+  has_many :speakings
 end

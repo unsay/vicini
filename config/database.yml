@@ -1,7 +1,7 @@
 development:
-  adapter: postgresql
+  adapter: postgis 
   database: vicini_development  
 
 test:
-  adapter: postgresql 
+  adapter: postgis 
   database: vicini_test

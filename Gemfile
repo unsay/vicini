@@ -5,12 +5,13 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.beta1'
 
+gem 'activerecord-postgis-adapter', git: 'git://github.com/dazuma/activerecord-postgis-adapter.git'
 gem 'acts-as-taggable-on'
 gem 'geocoder'
 gem 'haml-rails'
 gem 'pg'
-gem 'sorcery', git: 'git://github.com/NoamB/sorcery.git' # master branch for Rail 4
 gem 'simple_form'
+gem 'sorcery', git: 'git://github.com/NoamB/sorcery.git' # master branch for Rail 4
 
 # Gems used only for assets and not required
 # in production environments by default.

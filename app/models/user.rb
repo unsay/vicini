@@ -1,13 +1,19 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  acts_as_geolocated
+
   geocoded_by :full_address_for_geocoding
 
   after_validation :geocode
 
-  has_many :messages
   has_many :listenings
+  has_many :messages
   has_many :speakings
+
+  def speaking_to(tag_id)
+    User.within_radius
+  end
 
 private
   
@@ -16,4 +22,3 @@ private
   end
 
 end
-

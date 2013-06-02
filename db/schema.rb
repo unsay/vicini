@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130601232622) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "listenings", force: true do |t|
     t.integer  "user_id",    null: false
     t.integer  "radius"

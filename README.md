@@ -1,28 +1,13 @@
-== README
+# Vicini
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Contributing
 
-Things you may want to cover:
+We encourage you to contribute. 
 
-* Ruby version
+## Code Status
 
-* System dependencies
+* [![Build Status](https://api.travis-ci.org/unsay/vicini.png)](https://travis-ci.org/unsay/vicini)
 
-* Configuration
+## License
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Vicini is released under the [MIT License](http://www.opensource.org/licenses/MIT)

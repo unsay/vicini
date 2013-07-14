@@ -9,6 +9,9 @@ $brown: rgb(56, 37, 17);
 $grey: rgb(54, 57, 66);
 
 body {
+  margin:0;
+  padding:0;
+  border-top:5px solid $dark_green;
   color: $grey;
   font-family: $app_font; 
   background-image:url('shl.png');
@@ -16,6 +19,7 @@ body {
 }
 
 section.content {
+  margin:auto;
   @include outer-container;
   @include span-columns(12);
 }

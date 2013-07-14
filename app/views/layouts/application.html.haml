@@ -12,12 +12,14 @@
       %h1 Vicini
       %persona(ng-app='persona')
         %div(ng-controller='PersonaCtrl')
-          %button(ng-click="verify()") Verify Identity
+          %div.persona-button.dark(ng-click="verify()") 
+            %span= t('sign_in')
           %div(ng-show='verified')
             Hello {{email}}
             button(ng-click='logout()') Log Out
           %div(ng-hide='error')
             %strong {{error}}
     %section.content
-      = yield
+      .inner
+        = yield
     %footer

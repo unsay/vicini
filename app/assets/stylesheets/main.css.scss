@@ -1,5 +1,6 @@
 // Fonts
-$app_font: 'Copse', serif;
+$heading_font: 'Satisfy', serif;
+$app_font: 'Roboto Slab', serif;
 
 // Colors
 $beige: rgb(216, 203, 166); 
@@ -16,6 +17,10 @@ body {
   font-family: $app_font; 
   background-image:url('shl.png');
   @include image-2x('shl_@2X.png', 2px, 2px);
+}
+
+h1 {
+  font-family: $heading_font;
 }
 
 header {

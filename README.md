@@ -1,4 +1,4 @@
-# Vicini
+# Vicini [![Build Status](https://api.travis-ci.org/unsay/vicini.png)](https://travis-ci.org/unsay/vicini) [![Dependency Status](https://gemnasium.com/unsay/vicini.png)](https://gemnasium.com/unsay/vicini) [![Code Climate](https://codeclimate.com/github/unsay/vicini.png)](https://codeclimate.com/github/unsay/vicini)
 
 Speak to your neighbors. Listen to what they have to say. Only communicate with
 people within a clear geographic area. Only follow topics that interest you.
@@ -16,10 +16,6 @@ The [product roadmap](https://trello.com/board/vicini/51acd4bf9a269a5e4a00542e)
 is maintained on Trello.
 
 We encourage you to contribute. Pull request, ahoy. 
-
-## Code Status
-
-[![Build Status](https://api.travis-ci.org/unsay/vicini.png)](https://travis-ci.org/unsay/vicini)
 
 ## License
 

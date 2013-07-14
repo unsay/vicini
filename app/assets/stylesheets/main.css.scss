@@ -18,8 +18,23 @@ body {
   @include image-2x('shl_@2X.png', 2px, 2px);
 }
 
-section.content {
-  margin:auto;
+header {
   @include outer-container;
-  @include span-columns(12);
+  .inner {
+    @include span-columns(12);
+  }
+  h1 {
+    float:left;
+  }
+  persona {
+    float:right;
+    margin-top:2em;
+  }
+}
+
+section.content {
+  @include outer-container;
+  .inner {
+    @include span-columns(12);
+  }
 }

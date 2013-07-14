@@ -12,6 +12,9 @@ This is Vicini.
 
 ## Contributing
 
+The [product roadmap](https://trello.com/board/vicini/51acd4bf9a269a5e4a00542e) 
+is maintained on Trello.
+
 We encourage you to contribute. Pull request, ahoy. 
 
 ## Code Status

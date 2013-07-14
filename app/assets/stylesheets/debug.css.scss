@@ -1,0 +1,28 @@
+$desktop: new-breakpoint(min-width 960px);
+$tablet: new-breakpoint(min-width 768px max-width 959px);
+$mobile-landscape: new-breakpoint(min-width 480px max-width 767px);
+$mobile-portrait: new-breakpoint(max-width 767px);
+
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
+
+debug {
+  font-family: 'Inconsolata', sans-serif;
+  position:absolute;
+  bottom:2em;
+  right:1em;
+}
+
+debug:after {
+  @include media($desktop){
+    content: '@desktop';
+  }
+  @include media($tablet){
+    content: '@tablet';
+  }
+  @include media($mobile-portrait){
+    content: '@mobile-portrait';
+  }
+  @include media($mobile-landscape){
+    content: '@mobile-landscape';
+  }
+}

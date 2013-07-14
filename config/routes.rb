@@ -1,8 +1,7 @@
 Vicini::Application.routes.draw do
-  resources :users
+  match '/auth/:provider/callback', to: 'sessions#omniauth', via: :post
 
-  resources :users do
-    resources :messages
-  end
+  resources :messages, only: :new
+  resources :users
   root to: 'welcome#index'
 end

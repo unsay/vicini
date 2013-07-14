@@ -79,7 +79,7 @@
 <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
 <script>
   // show_map( 44.983334, -93.26666999999999;
-    show_map( <%= @user.latitude %>, <%= @user.longitude %>);
+    show_map( <%= current_user.latitude %>, <%= current_user.longitude %>);
 
   function show_map(lat, lng) {
     console.log('show works');

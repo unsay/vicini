@@ -2,40 +2,22 @@
 %html
   %head
     %title Vicini
-    %link{:href => "http://fonts.googleapis.com/css?family=Merriweather+Sans", :rel => "stylesheet", :type => "text/css"}/
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag 'https://login.persona.org/include.js'
     = javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js'
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    %maincontainer
-      #header
-        .container_12
-          .grid_4
-            %h1
-              %a{:href => "/"} Welcome to Neighborhood
-          .grid_4
-            %h2 Connect with the community at large!
-          .grid_4
-            %ul
-              %li
-                %a{:href => "/comp-jn.php"} Compose a Message
-              %li
-                %a{:href => "/user-profile.php"} User Profile
-              %li
-                %a{:href => "/about.php"} About The Project
-      #main-body
-        .container_12
-          = yield
-      .clearfix &nbsp;
-      #footer
-        .container_12
-          .grid_12
-            %ul
-              %li
-                %a{:href => "#"} Compose a Message
-              %li
-                %a{:href => "#"} User Profile
-              %li
-                %a{:href => "#"} About The Project
-      .clearfix &nbsp;
+    %header
+      %h1 Vicini
+      %persona(ng-app='persona')
+        %div(ng-controller='PersonaCtrl')
+          %button(ng-click="verify()") Verify Identity
+          %div(ng-show='verified')
+            Hello {{email}}
+            button(ng-click='logout()') Log Out
+          %div(ng-hide='error')
+            %strong {{error}}
+    %section.content
+      = yield
+    %footer

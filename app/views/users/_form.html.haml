@@ -5,7 +5,6 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-
   .actions
     = f.input :username
     = f.input :email
@@ -16,6 +15,4 @@
     = f.input :city
     = f.input :state
     = f.input :zip
-    = f.input :latitude, disabled: true
-    = f.input :longitude, disabled: true 
-    = f.submit 'Save'
+    = f.submit t('users.new') 

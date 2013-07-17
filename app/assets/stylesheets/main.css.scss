@@ -21,6 +21,16 @@ body {
 
 h1 {
   font-family: $heading_font;
+  a {
+    text-decoration:none;
+    color: $light_green;
+  }
+}
+
+h2 {
+  margin:0 0 -.7em 0;
+  font-family:$heading_font;
+  color:$brown;
 }
 
 header {
@@ -31,7 +41,7 @@ header {
   h1 {
     float:left;
   }
-  persona {
+  .persona {
     float:right;
     margin-top:2em;
   }

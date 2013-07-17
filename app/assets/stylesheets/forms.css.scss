@@ -70,14 +70,19 @@ input[type=email],
 input[type=number],
 input[type=text],
 input[type=password] {
-  border:1px solid #ccc;
+  font-family:$app_font;
+  border:0;
+  border-bottom:1px dashed $light_green;
+  background:transparent;
   font-size:1rem;
-  padding:.3rem;
+  padding:.5rem;
 }
 
 input[type=submit], button { 
-  background: #e3e3e3;
-  border: 1px solid #bbb;
+  font-family:$app_font;
+  font-size:1rem;
+  background: $beige;
+  border: 1px solid $brown;
   border-radius: 3px;
   -webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
   box-shadow: inset 0 0 1px 1px #f6f6f6;
@@ -99,3 +104,22 @@ input[type=submit], button {
     color: #000; }
 }
 
+::-webkit-input-placeholder {
+  font-family: $app_font;
+  color: $grey;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  font-family: $app_font;
+  color: $grey;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  font-family: $app_font;
+  color: $grey;
+}
+
+:-ms-input-placeholder {  
+  font-family: $app_font;
+  color: $grey;
+}

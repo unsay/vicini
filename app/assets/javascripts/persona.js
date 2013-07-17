@@ -46,7 +46,7 @@ angular.module("persona").factory("personaSvc", ["$http", "$q", function($http, 
       return deferred.promise;
     },
     logout: function() {
-      return $http.post("/persona/logout").then(function(response) {
+      return $http.post("/logout").then(function(response) {
         if (response.data.status != "okay") {
           $q.reject(response.data.reason);
         }
@@ -54,7 +54,7 @@ angular.module("persona").factory("personaSvc", ["$http", "$q", function($http, 
       });
     },
     status: function() {
-      return $http.post("/persona/status").then(function(response) {
+      return $http.post("/auth/status").then(function(response) {
         return response.data;
       });
     }

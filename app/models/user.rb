@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include OmniAuthable
+
   authenticates_with_sorcery!
 
   #acts_as_geolocated

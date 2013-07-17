@@ -1,5 +1,6 @@
 en:
   sign_in: 'Sign In / Register'
+  sign_out: 'Sign Out'  
   users:
     new: 'Register'
   welcome:

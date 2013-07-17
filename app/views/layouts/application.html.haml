@@ -5,23 +5,25 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'https://login.persona.org/include.js'
     = javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js'
+    = javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
     %header
       .inner
-        %h1
-          = link_to('Vicini', root_path)
-        %persona(ng-app='persona')
-          %div(ng-controller='PersonaCtrl')
-            %div.persona-button.dark(ng-click="verify()") 
-              %span= t('sign_in')
-            %div(ng-show='verified')
-              Hello {{email}}
-              %button(ng-click='logout()') Log Out
-            %div(ng-hide='error')
+        %h1= link_to('Vicini', root_path)
+        %div#persona.persona
+          %div(data-ng-controller='PersonaCtrl')
+            %div(data-ng-hide='verified')
+              %div.persona-button.dark(ng-click='verify()') 
+                %span= t('sign_in')
+            %div(data-ng-show='verified')
+              Hello, {{ email }}
+              %div.persona-button.dark(ng-click='logout()') 
+                %span= t('sign_out')
+            %div(data-ng-show='error')
               %strong {{error}}
-    %section.content
-      .inner
-        = yield
+    %section#app.content
+      %div(data-ng-view)
+        {{ ditty }}
     %footer

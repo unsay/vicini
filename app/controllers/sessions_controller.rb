@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
   
   def omniauth
     auth = request.env['omniauth.auth']
-    binding.pry
     user, auth = User.find_or_create_from_auth_hash(auth, params, request)
     auto_login(user) if user
     render :json => auth

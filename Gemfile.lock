@@ -57,6 +57,7 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.1.4)
+    cancan (1.6.10)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -86,6 +87,8 @@ GEM
     faraday (0.8.7)
       multipart-post (~> 1.1)
     ffi (1.9.0)
+    font-awesome-rails (3.2.1.2)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.4)
     geocoder (1.1.8)
     geokit (1.6.5)
@@ -294,9 +297,11 @@ DEPENDENCIES
   acts-as-taggable-on
   better_errors
   binding_of_caller
+  cancan
   coffee-rails (~> 4.0.0)
   envb-rails (= 0.0.5)
   factory_girl_rails
+  font-awesome-rails
   geocoder
   geokit
   guard-livereload

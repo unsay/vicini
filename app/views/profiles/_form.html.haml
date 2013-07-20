@@ -1,0 +1,27 @@
+%section.introduction
+
+  %h1 Welcome, neighbor! 
+
+  %p
+    In order make the most out of Vicini, we need to know a little about you and
+    where you live. 
+
+  %p Privacy is important to us. Below is our ethos:
+
+  %ul
+    %li Your data is used for only its intended use.
+    %li Your data is never bartered or sold.
+    %li Your data is never given to advertisers.
+    %li Your data may be kept indefinitely.
+    %li Data is given to law enforcement only when the legal process is followed.
+ 
+= simple_form_for :profile do |f|
+  .actions
+    = f.input :first_name 
+    = f.input :last_name
+    = f.input :address1
+    = f.input :address2
+    = f.input :city
+    = f.input :state
+    = f.input :zip
+    = f.submit t('users.new') 

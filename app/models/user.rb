@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :listenings
   has_many :messages
+  has_many :profiles
   has_many :speakings
 
   def speaking_to(tag_id)

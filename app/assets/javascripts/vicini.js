@@ -1,34 +1,16 @@
-var app = angular.module('vicini', ['ngResource']);
+var app = angular.module('vicini',
+  [
+    'app.directory',
+    'app.messages',
+    'app.profiles'
+  ]
+);
 
-app.config(function($routeProvider) {
+app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = angular.element( document.querySelectorAll('meta[name=csrf-token]') ).attr('content');
   $routeProvider
-    .when('/',
-      {
-        controller: 'WelcomeController',
-        templateUrl: '/welcome'
-      })
-    .when('/register',
-      {
-        controller: 'RegistrationController',
-        templateUrl: '/profile/edit'
-      })
-    .when('/messages/new',
-      {
-        controller: 'MessagesController',
-        templateUrl: 'partials/registration.html'
-      })
     .otherwise({ redirectTo: '/' });
-});
-
-var controllers = {}
-
-controllers.WelcomeController = function($scope) {
-};
-
-controllers.RegistrationController = function($scope, $http, $resource) {
-};
-
-app.controller(controllers);
+}]);
 
 angular.element(document).ready(function() {
   angular.bootstrap(document.getElementById('persona'), ['persona']);

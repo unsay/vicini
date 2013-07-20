@@ -2,7 +2,7 @@ en:
   sign_in: 'Sign In / Register'
   sign_out: 'Sign Out'  
   users:
-    new: 'Register'
+    new: 'Update Profile'
   welcome:
     about:
       Speak to your neighbors.  Listen to what they have to say.  Only communicate with people within a clear geographic area.  Only follow topics that interest you.

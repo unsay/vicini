@@ -5,6 +5,18 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def create
+    # logger.debug(params.inspect)
+    @user = User.new(params[:user].permit(:first_name, :last_name, :address1, :address2, :city, :state, :zip))
+    # authorize!(:create, @user)
+    if(@user.save)
+      respond_with @user
+    else
+      # Error json
+      respond_with { head :no_content }
+    end
+  end
+
   def update
     respond_to do |format|
       if @user.update(user_params)

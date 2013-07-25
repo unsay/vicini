@@ -324,7 +324,6 @@ DEPENDENCIES
   rails3_serve_static_assets!
   rails_log_stdout!
   rails_view_annotator
-  rb-fsevent
   resque_spec
   rspec-rails
   rspec_candy

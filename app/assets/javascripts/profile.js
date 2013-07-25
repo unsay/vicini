@@ -1,4 +1,4 @@
-angular.module('app.profiles', [])
+angular.module('app.profiles', ['ngResource'])
 
 
 .config(['$routeProvider', function ($routeProvider) {
@@ -23,8 +23,8 @@ angular.module('app.profiles', [])
 })
 
 .factory('Profile', function($resource) {
-  return $resource('/profiles/:id', {}, {
-    save: { method: 'PUT' }
+  return $resource('/profiles/:id/update', {}, {
+    save: { method: 'PATCH' }
   });
 })
 
@@ -49,9 +49,15 @@ angular.module('app.profiles', [])
     $scope.profile = {}; 
   } 
 
+  $scope.clap = function() {
+    console.log("Happy");
+  }
+
   $scope.submit = function() {
+    console.log('submitting the profile');
+    console.log($scope.profile);
     if ($scope.profile.id > 0) {
-      $scope.profile.$save({ id: $scope.profile.id }, function(m) {
+      $scope.profile.$save({ user_id: $scope.profile.id }, function(m) {
         $location.path('/profiles');
       });
     } else {

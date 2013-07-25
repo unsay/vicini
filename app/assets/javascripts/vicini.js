@@ -2,6 +2,7 @@ var app = angular.module('vicini',
   [
     'app.directory',
     'app.messages',
+    'app.users',
     'app.profiles'
   ]
 );

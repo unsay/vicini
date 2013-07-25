@@ -21,35 +21,24 @@ angular.module('app.messages', [])
 
 .factory('Messages', function($resource) {
   return $resource('/messages', {}, {
-    index:  { method: 'GET', isArray: true},
     create: { method: 'POST' }
   });
 })
 
 .controller('messagesController', function($scope, Messages) {
   console.log('messagesController');
-  $scope.messages = Messages.index();
 })
 
-.controller('messageFormController', function($scope, $routeParams, $location, Message, Messages) {
+.controller('messageFormController', function($scope, $routeParams, $location, Messages) {
   console.log('messageFormController');
 
-  if ($routeParams.id) {
-    $scope.message = Message.get({ id: $routeParams.id });
-  } else {
-    $scope.message = {}; 
-  } 
+  $scope.message = {}; 
 
   $scope.submit = function() {
-    if ($scope.message.id > 0) {
-      $scope.message.$save({ id: $scope.message.id }, function(m) {
-        $location.path('/messages');
-      });
-    } else {
-      Projects.create($scope.project, function(p) {
-        $location.path('/messages');
-      })
-    }
+    console.log('submit()');
+    Messages.create($scope.message, function(m) {
+      $location.path('/messages');
+    })
   }  
 })
 

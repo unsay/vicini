@@ -2,7 +2,8 @@ var app = angular.module('vicini',
   [
     'app.directory',
     'app.messages',
-    'app.profiles'
+    'app.profiles',
+    'ngResource'
   ]
 );
 

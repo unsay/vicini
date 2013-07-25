@@ -1,5 +1,7 @@
 %h1 Send a Message
-= simple_form_for :message, url: '', html: { 'data-ng-controller' => 'messageFormController', 'data-ng-submit' => 'submit()' } do |f|
-  = f.input :subject
-  = f.input :body
-  = f.button :submit
+%form(data-ng-controller='messageFormController' data-ng-submit='submit()' class='simple_form')
+  = label :message, :subject
+  = text_field :message, :subject
+  = label :message, :body
+  = text_area :message, :body
+  = submit_tag t('message.submit')

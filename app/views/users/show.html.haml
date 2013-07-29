@@ -1,6 +1,10 @@
-%p#notice= notice
+%h1 User Controller
 
-
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+.user {{ user.id }}
+.user {{ user.first_name }}
+.user {{ user.last_name }}
+.user {{ user.address1 }}
+.user {{ user.address2 }}
+.user {{ user.city }}
+.user {{ user.state }}
+.user {{ user.zip }}

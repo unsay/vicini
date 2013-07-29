@@ -2,14 +2,14 @@ angular.module('app.users', ['ngResource'])
 
 .config(['$routeProvider', function ($routeProvider) {
   $routeProvider
-    .when('/user/:id',
+    .when('/users/:id',
       {
         controller: 'userController',
         templateUrl: '/users/show.ng'
       })
-    .when('/user/:id/edit',
+    .when('/users/:id/edit',
       {
-        controller: 'userController',
+        controller: 'userFormController',
         templateUrl: '/users/edit.ng'
       })
 }])
@@ -22,15 +22,18 @@ angular.module('app.users', ['ngResource'])
 })
 
 .factory('User', function($resource) {
-  return $resource('/users/:id/update', {}, {
+  return $resource('/users/:id', {}, {
     save: { method: 'PATCH' }
   });
 })
 
-.controller('userController', function($scope, $routeParams, user) {
+.controller('userController', function($scope, $routeParams, User) {
   console.log('userController');
   var id = $routeParams.id;
-  $scope.user = user.get({ id: id });
+  console.log(id);
+  $scope.user = User.get({ id: id });
+  console.log($scope.user.id);
+  console.log($scope.user.last_name);
   console.log($scope.user);
 })
 
@@ -38,18 +41,20 @@ angular.module('app.users', ['ngResource'])
   $scope.edit = function() {
     console.log('userNavController#edit');
     // Angular style redirect
-    $location.path('/users/1/edit');
+    $location.path('/users/2/edit');
   }
 })
 
-.controller('userFormController', function($scope, $routeParams, $location, user, users) {
+.controller('userFormController', function($scope, $routeParams, $location, User, Users) {
   console.log('usersFormController');
 
   if ($routeParams.id) {
-    $scope.user = user.get({ id: $routeParams.id });
+    $scope.user = User.get({ id: $routeParams.id });
   } else {
     $scope.user = {}; 
   } 
+
+  console.log($scope.user);
 
   $scope.clap = function() {
     console.log("Happy");
@@ -58,14 +63,16 @@ angular.module('app.users', ['ngResource'])
   $scope.submit = function() {
     console.log('submitting the user');
     console.log($scope.user);
-    if ($scope.user.id > 0) {
-      $scope.user.$save({ id: $scope.user.id }, function(m) {
-        $location.path('/users');
-      });
-    } else {
-      users.create($scope.user, function(p) {
-        $location.path('/users');
-      })
-    }
+    // if ($scope.user.id > 0) {
+    //   $scope.user.$save({ id: $scope.user.id }, function(m) {
+    //     $location.path('/users/' + $scope.user.id);
+    //   });
+    // } else {
+    Users.create($scope.user, function(userData) {
+      console.log("Received success promist");
+      console.log(userData);
+      $location.path('/users/' + userData.id);
+    })
+    // }
   }  
 });

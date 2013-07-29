@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
-  layout false
+  include Angular
+
+  def show
+    @user = User.find(params[:id])
+    # authorize!(:read, @user)
+    respond_with @user
+  end
 
   def edit
     @user = current_user

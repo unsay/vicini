@@ -17,17 +17,6 @@
 
     %button(ng-click='clap()') Happy Clap
  
-= simple_form_for :profile, html: { 'data-ng-submit' => 'submit()' } do |f|
-  .actions
-    = f.input :first_name 
-    = f.input :last_name
-    = f.input :address1
-    = f.input :address2
-    = f.input :city
-    = f.input :state
-    = f.input :zip
-    = f.submit t('users.new') 
-
 %form(ng-submit='submit()')
   .actions
     .input

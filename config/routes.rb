@@ -5,9 +5,9 @@ Vicini::Application.routes.draw do
   match '/auth/status', to: 'sessions#status', via: :post
   match '/logout', to: 'sessions#destroy', via: :post
 
+  resources :addresses
   resources :directory
   resources :messages, only: :new
-  resources :profiles
   resources :users
   resources :welcome, only: :index
   root to: 'app#index'

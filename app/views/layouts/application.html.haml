@@ -23,7 +23,14 @@
                 %span= t('sign_out')
             %div(data-ng-show='error')
               %strong {{error}}
+
     %section#app.content
+      %div#nav
+        %a.button(data-ng-controller='directoryNavController' data-ng-click='index()')
+          %span.icon-group
+        %a.button(data-ng-controller='messageNavController' data-ng-click='new()')
+          %span.icon-quote-right
+        %a.button(data-ng-controller='profileNavController' data-ng-click='edit()')
+          %span.icon-gear
       %div(data-ng-view)
-        {{ ditty }}
     %footer

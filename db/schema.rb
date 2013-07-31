@@ -11,12 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130714201541) do
+ActiveRecord::Schema.define(version: 20130730152951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "cube"
   enable_extension "earthdistance"
+
+  create_table "addresses", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.float    "latitude"
+    t.float    "longitude"
+  end
 
   create_table "listenings", force: true do |t|
     t.integer  "user_id",    null: false
@@ -59,20 +72,10 @@ ActiveRecord::Schema.define(version: 20130714201541) do
 
   create_table "users", force: true do |t|
     t.string   "email"
-    t.string   "crypted_password"
-    t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "phone"
-    t.string   "address1"
-    t.string   "address2"
-    t.string   "city"
-    t.string   "state"
-    t.integer  "zip"
-    t.float    "latitude"
-    t.float    "longitude"
   end
 
 end

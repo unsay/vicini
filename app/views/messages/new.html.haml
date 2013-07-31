@@ -1,0 +1,7 @@
+%h1 Send a Message
+%form(data-ng-controller='messageFormController' data-ng-submit='submit()' class='simple_form')
+  = label :message, :subject
+  = text_field :message, :subject
+  = label :message, :body
+  = text_area :message, :body
+  = submit_tag t('message.submit')

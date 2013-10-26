@@ -29,14 +29,11 @@ gem 'uglifier', '~> 2.2.1'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'guard-livereload', require: false
   gem 'letter_opener'
   gem 'pry'
   gem 'pry-awesome_print'
   gem 'quiet_assets'
-  gem 'rack-livereload'
   gem 'rails_view_annotator'
-  gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i  
   gem 'thin'
 end
 

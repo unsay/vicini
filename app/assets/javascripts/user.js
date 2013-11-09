@@ -1,4 +1,4 @@
-angular.module('app.users', ['ngResource'])
+angular.module('app.users', ['ngResource', 'persona'])
 
 .config(['$routeProvider', function ($routeProvider) {
   $routeProvider
@@ -6,6 +6,11 @@ angular.module('app.users', ['ngResource'])
       {
         controller: 'userController',
         templateUrl: '/users/show.ng'
+      })
+    .when('/user/create-account',
+      {
+        controller: 'userFormController',
+        template: '<h1>Please login into Mozilla Persona to begin editing profile.</h1>'
       })
     .when('/users/:id/edit',
       {
@@ -16,7 +21,7 @@ angular.module('app.users', ['ngResource'])
 
 .factory('Users', function($resource) {
   return $resource('/users', {}, {
-    index:  { method: 'GET', isArray: true},
+    query:  { method: 'GET', isArray: true},
     create: { method: 'POST' }
   });
 })
@@ -27,22 +32,31 @@ angular.module('app.users', ['ngResource'])
   });
 })
 
-.controller('userController', function($scope, $routeParams, User) {
-  console.log('userController');
-  var id = $routeParams.id;
-  console.log(id);
-  $scope.user = User.get({ id: id });
-  console.log($scope.user.id);
-  console.log($scope.user.last_name);
-  console.log($scope.user);
-})
-
-.controller('userNavController', function($scope, $location) {
+.controller('userNavController', function($scope, $location, personaSvc) {
   $scope.edit = function() {
     console.log('userNavController#edit');
-    // Angular style redirect
-    $location.path('/users/2/edit');
+    personaSvc.status().then( function(data) {
+      console.log(data);
+      if(data.id) {
+        // Angular style redirect
+        $location.path('/users/' + data.id + '/edit');
+      } else {
+        $location.path('/user/create-account');
+      }
+    });
   }
+})
+
+.controller('userController', function($scope, $routeParams, User, Users) {
+  console.log('userController');
+  if ($routeParams.id) {
+    $scope.user = User.get({ id: $routeParams.id });
+  } else {
+    $scope.user = {}; 
+    $scope.users = Users.query( function() {
+      console.log($scope.users);
+    });
+  } 
 })
 
 .controller('userFormController', function($scope, $routeParams, $location, User, Users) {
@@ -54,25 +68,9 @@ angular.module('app.users', ['ngResource'])
     $scope.user = {}; 
   } 
 
-  console.log($scope.user);
-
-  $scope.clap = function() {
-    console.log("Happy");
-  }
-
-  $scope.submit = function() {
+  $scope.update = function() {
     console.log('submitting the user');
     console.log($scope.user);
-    // if ($scope.user.id > 0) {
-    //   $scope.user.$save({ id: $scope.user.id }, function(m) {
-    //     $location.path('/users/' + $scope.user.id);
-    //   });
-    // } else {
-    Users.create($scope.user, function(userData) {
-      console.log("Received success promist");
-      console.log(userData);
-      $location.path('/users/' + userData.id);
-    })
-    // }
+    $scope.user.$save({ id: $scope.user.id });
   }  
 });

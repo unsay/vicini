@@ -8,6 +8,7 @@ var app = angular.module('vicini',
 );
 
 app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
+  $httpProvider.defaults.headers.patch = { 'Content-Type': 'application/json;charset=utf-8' }
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = angular.element( document.querySelectorAll('meta[name=csrf-token]') ).attr('content');
   $routeProvider
     .otherwise({ redirectTo: '/' });

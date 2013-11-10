@@ -33,7 +33,7 @@ angular.module("persona").factory("personaSvc", ["$http", "$q", function($http, 
     verify: function() {
       var deferred = $q.defer();
       navigator.id.get(function(assertion) {
-        $http.post("/auth/persona/callback", {
+        $http.post("/auth/persona/callback.json", {
           assertion: assertion
         }).then(function(response) {
           if (response.data.status != "okay") {
@@ -46,7 +46,7 @@ angular.module("persona").factory("personaSvc", ["$http", "$q", function($http, 
       return deferred.promise;
     },
     logout: function() {
-      return $http.post("/logout").then(function(response) {
+      return $http.post("/logout.json").then(function(response) {
         if (response.data.status != "okay") {
           $q.reject(response.data.reason);
         }
@@ -54,7 +54,7 @@ angular.module("persona").factory("personaSvc", ["$http", "$q", function($http, 
       });
     },
     status: function() {
-      return $http.post("/auth/status").then(function(response) {
+      return $http.post("/auth/status.json").then(function(response) {
         return response.data;
       });
     }

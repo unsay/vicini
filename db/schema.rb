@@ -13,10 +13,18 @@
 
 ActiveRecord::Schema.define(version: 20130730152951) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "cube"
-  enable_extension "earthdistance"
+  create_table "addresses", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.float    "latitude"
+    t.float    "longitude"
+  end
 
   create_table "addresses", force: true do |t|
     t.integer  "user_id",    null: false

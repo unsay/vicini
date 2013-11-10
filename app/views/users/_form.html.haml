@@ -1,9 +1,10 @@
 %section.introduction
 
-  %h2 Welcome, neighbor! 
+  %h1 Welcome, neighbor! 
+
   %p
     In order make the most out of Vicini, we need to know a little about you and
-    where you live. This information is used only to provide your location. 
+    where you live. 
 
   %p Privacy is important to us. Below is our ethos:
 
@@ -13,20 +14,17 @@
     %li Your data is never given to advertisers.
     %li Your data may be kept indefinitely.
     %li Data is given to law enforcement only when the legal process is followed.
- 
-= simple_form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
+
+%form(ng-submit='#{formMethod}')
   .actions
-    = f.input :first_name, placeholder: 'First Name'
-    = f.input :last_name, placeholder: 'Last Name'
-    = f.input :address1, placeholder: 'Street Address'
-    = f.input :address2
-    = f.input :city, placeholder: 'City'
-    = f.input :state, placeholder: 'State'
-    = f.input :zip, placeholder: 'Zip'
-    = f.submit t('users.new') 
+    .input
+      %label First Name
+      %input(ng-model='user.first_name')
+    .input
+      %label Last Name
+      %input(ng-model='user.last_name')
+    .input
+      %label Email
+      %input(ng-model='user.email')
+    .input
+      %input{type: 'submit', value: 'Button'}

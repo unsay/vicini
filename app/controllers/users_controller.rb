@@ -1,11 +1,37 @@
 class UsersController < ApplicationController
-  layout false
+  include Angular
+
+  wrap_parameters User
+
+  def index
+    @users = User.all
+    respond_with @users
+  end
+
+  def show
+    @user = User.find(params[:id])
+    # authorize!(:read, @user)
+    respond_with @user
+  end
 
   def edit
     @user = current_user
   end
 
+  def create
+    # logger.debug(params.inspect)
+    @user = User.new(user_params)
+    # authorize!(:create, @user)
+    if(@user.save)
+      respond_with @user
+    else
+      # Error json
+      respond_with { head :no_content }
+    end
+  end
+
   def update
+    set_user
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -33,8 +59,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # This webapp is a trendy club. If you're not on the list yo don't get in.
     def user_params
-      params[:user].permit(:username, :first_name, :last_name, :address1, :address2, :city, :state, :zip, :phone, :email)
+      params[:user].permit(:id, :first_name, :last_name, :email)
     end
 end

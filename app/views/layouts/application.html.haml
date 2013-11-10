@@ -5,7 +5,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'
     = javascript_include_tag 'https://login.persona.org/include.js'
-    = javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js'
+    = javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js'
     = javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js'
     = javascript_include_tag '//cdn.jsdelivr.net/restangular/1.1.3/restangular.min.js'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -32,6 +32,7 @@
           %span.icon-group
         %a.button(data-ng-controller='messageNavController' data-ng-click='new()')
           %span.icon-quote-right
+        %a.button(data-ng-controller='userNavController' data-ng-click='edit()')
         %a.button(data-ng-controller='addressNavController' data-ng-click='edit()')
           %span.icon-gear
       %div(data-ng-view)

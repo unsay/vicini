@@ -1,10 +1,11 @@
 var app = angular.module('vicini',
   [
+    'app.addresses',
     'app.directory',
     'app.messages',
-    'app.addresses',
-    'restangular',
-    'ngResource'
+    'app.users',
+    'ngResource',
+    'restangular'
   ]
 );
 

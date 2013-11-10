@@ -14,8 +14,10 @@
     %li Your data is never given to advertisers.
     %li Your data may be kept indefinitely.
     %li Data is given to law enforcement only when the legal process is followed.
+
+    %button(ng-click='clap()') Happy Clap
  
-= simple_form_for :address do |f|
+= simple_form_for :profile, html: { 'data-ng-submit' => 'submit()' } do |f|
   .actions
     = f.input :first_name 
     = f.input :last_name
@@ -25,3 +27,30 @@
     = f.input :state
     = f.input :zip
     = f.submit t('users.new') 
+
+%form(ng-submit='submit()')
+  .actions
+    .input
+      %label First Name
+      %input(ng-model='profile.first_name')
+    .input
+      %label Last Name
+      %input(ng-model='profile.last_name')
+    .input
+      %label Address 1
+      %input(ng-model='profile.address1')
+    .input
+      %label Address 2
+      %input(ng-model='profile.address2')
+    .input
+      %label City
+      %input(ng-model='profile.city')
+    .input
+    .input
+      %label State
+      %input(ng-model='profile.state')
+    .input
+      %label Zip
+      %input(ng-model='profile.zip')
+    .input
+      %input{type: 'submit', value: 'Button'}

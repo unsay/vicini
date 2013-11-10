@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def status
-    status = (current_user) ? { email: current_user.email } : { email: false }
+    status = (current_user) ? { email: current_user.email, id: current_user.id } : { email: false }
     render :json => status 
   end
 

@@ -22,7 +22,7 @@ gem 'pg'
 gem 'neat', '~> 1.4.0'
 gem 'sass-rails', '~> 4.0.1'
 gem 'simple_form', '~> 3.0.0'
-gem 'sorcery', '~> 0.8.2'
+gem 'sorcery', '~> 0.8.4'
 gem 'turbolinks', '~> 1.3.0'
 gem 'uglifier', '~> 2.3.0'
 
@@ -39,7 +39,6 @@ end
 
 group :test do
   gem 'factory_girl_rails'
-  gem 'resque_spec'
   gem 'rspec-rails'
   gem 'rspec_candy'
   gem 'shoulda-matchers'
@@ -50,7 +49,7 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn', '~> 4.6.3'
+  gem 'unicorn', '~> 4.7.0'
   gem 'rails_log_stdout', github: 'heroku/rails_log_stdout'
   gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 end

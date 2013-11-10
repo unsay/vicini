@@ -1,7 +1,13 @@
 development:
-  adapter: postgresql 
-  database: vicini_development  
+  adapter: postgresql
+  encoding: unicode
+  database: vicini_development
+  pool: 5
+  username: vicini
 
 test:
-  adapter: postgresql 
+  adapter: postgresql
+  encoding: unicode
   database: vicini_test
+  pool: 5
+  username: vicini

@@ -5,6 +5,7 @@ var app = angular.module('vicini',
     'app.messages',
     'app.users',
     'ngResource',
+    'ngRoute',
     'restangular'
   ]
 );

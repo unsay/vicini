@@ -24,7 +24,4 @@ Vicini::Application.configure do
 
   # Debug mode disables concatenation and preprocessing of assets.
   config.assets.debug = true
-
-  # Automatically inject JavaScript needed for LiveReload
-  config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
 end

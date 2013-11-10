@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
 
   # after_validation :geocode
 
+  has_many :addresses
   has_many :listenings
   has_many :messages
-  has_many :profiles
   has_many :speakings
 
   def speaking_to(tag_id)

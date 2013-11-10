@@ -2,41 +2,38 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.1'
 
-gem 'activerecord-postgres-earthdistance'
-gem 'acts-as-taggable-on'
-gem 'cancan'
+gem 'activerecord-postgres-earthdistance', '~> 0.2.0'
+gem 'acts-as-taggable-on', '~> 2.4.1'
+gem 'cancan', '~> 1.6.10'
+gem 'cdnjs-rails', '~> 0.0.1'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'envb-rails', '0.0.5'
-gem 'font-awesome-rails'
-gem 'geocoder'
-gem 'geokit'
-gem 'haml-rails'
+gem 'font-awesome-rails', '~> 4.0.0'
+gem 'geocoder', '~> 1.1.8'
+gem 'geokit', '~> 1.6.7'
+gem 'haml', '~> 4.0.3'
 gem 'omniauth', '~> 1.1.4'
 gem 'omniauth-persona', '~> 0.0.1'
-gem 'jbuilder', '~> 1.4.2'
+gem 'jbuilder', '~> 1.5.2'
 gem 'jquery-rails'
 gem 'pg'
-gem 'neat', '~> 1.3.0'
-gem 'sass-rails', '~> 4.0.0'
-gem 'simple_form', '3.0.0.rc'
+gem 'neat', '~> 1.4.0'
+gem 'sass-rails', '~> 4.0.1'
+gem 'simple_form', '~> 3.0.0'
 gem 'sorcery', '~> 0.8.2'
-gem 'turbolinks'
-gem 'uglifier', '>= 1.3.0'
+gem 'turbolinks', '~> 1.3.0'
+gem 'uglifier', '~> 2.3.0'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'guard-livereload', require: false
   gem 'letter_opener'
   gem 'pry'
   gem 'pry-awesome_print'
   gem 'quiet_assets'
-  gem 'rack-livereload'
   gem 'rails_view_annotator'
-  gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i  
   gem 'thin'
 end
 
@@ -53,7 +50,7 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn'
+  gem 'unicorn', '~> 4.6.3'
   gem 'rails_log_stdout', github: 'heroku/rails_log_stdout'
   gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 end

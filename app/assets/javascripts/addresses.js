@@ -20,20 +20,7 @@ angular.module('app.addresses', [])
       })
 }])
 
-.factory('Addresses', function($resource) {
-  return $resource('/addresses', {}, {
-    index:  { method: 'GET', isArray: true},
-    create: { method: 'POST' }
-  });
-})
-
-.factory('Address', function($resource) {
-  return $resource('/addresses/:id', {}, {
-    save: { method: 'PUT' }
-  });
-})
-
-.controller('addressController', function($scope, $routeParams, Address) {
+.controller('addressController', function($scope, $routeParams) {
   console.log('addressController');
   var id = $routeParams.id;
   $scope.address = Address.get({ id: id });
@@ -45,24 +32,24 @@ angular.module('app.addresses', [])
   }
 })
 
-.controller('addressFormController', function($scope, $routeParams, $location, Address, Addresses) {
+.controller('addressFormController', function($scope, $routeParams, $location, Restangular) {
   console.log('addressesFormController');
 
   if ($routeParams.id) {
-    $scope.address = Address.get({ id: $routeParams.id });
+    $scope.address = Restangular.one('addresses', $routeParams.id).get();
   } else {
     $scope.address = {}; 
   } 
 
   $scope.submit = function() {
     if ($scope.address.id > 0) {
-      $scope.address.$save({ id: $scope.address.id }, function(m) {
+      Restangular.one('addresses', $scope.adddress.id).patch().then(function() {
         $location.path('/addresses');
       });
     } else {
-      addresses.create($scope.address, function(p) {
+      Restangular.all('addresses').post().then(function() {
         $location.path('/addresses');
-      })
+      });
     }
   }  
 });

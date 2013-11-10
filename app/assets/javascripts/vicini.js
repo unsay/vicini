@@ -3,7 +3,6 @@ var app = angular.module('vicini',
     'app.addresses',
     'app.directory',
     'app.messages',
-    'app.profiles'
     'app.users',
     'ngResource',
     'restangular'

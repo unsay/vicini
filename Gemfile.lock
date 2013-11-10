@@ -144,6 +144,8 @@ GEM
     pry-awesome_print (9.6.8)
       awesome_print (~> 1.1.0)
       pry (~> 0.9.0)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -267,8 +269,8 @@ DEPENDENCIES
   omniauth (~> 1.1.4)
   omniauth-persona (~> 0.0.1)
   pg
-  pry
   pry-awesome_print
+  pry-rails
   quiet_assets
   rails (= 4.0.1)
   rails3_serve_static_assets!

@@ -17,6 +17,14 @@ is maintained on Trello.
 
 We encourage you to contribute. Pull request, ahoy. 
 
+## Bootstrapping
+
+Vicini requires PostgreSQL.
+
+    $ cp config/database.example.yml config/database.yml
+
+Adjust any settings you may need.
+
 ## License
 
 Vicini is released under the [MIT License](http://www.opensource.org/licenses/MIT)

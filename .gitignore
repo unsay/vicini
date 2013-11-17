@@ -17,4 +17,4 @@
 
 .ruby-gemset
 
-database.yml
+config/database.yml

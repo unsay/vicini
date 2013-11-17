@@ -12,10 +12,21 @@ This is Vicini.
 
 ## Contributing
 
-The [product roadmap](https://trello.com/board/vicini/51acd4bf9a269a5e4a00542e) 
-is maintained on Trello.
+We welcome contributions of any kind, whether it is being involved with the 
+project planning or development.
 
-We encourage you to contribute. Pull request, ahoy. 
+There are two [Trello](https://trello.com) boards we use.
+
+#### [Product Roadmamp & Planning](https://trello.com/b/lxXO26Mo/vicini-planning)
+
+This is the place where new ideas are gathered and requirements get written
+down.
+
+#### [Development](https://trello.com/b/nBdcZnqA/vicini-development)
+
+This board is for developers with a clear order of priorities. Please feel free
+to choose a feature in the queue, implment, and issue a pull-request, if it is 
+not already assigned.
 
 ## Bootstrapping
 

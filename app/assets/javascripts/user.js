@@ -1,4 +1,4 @@
-angular.module('app.users', ['ngResource', 'persona'])
+angular.module('app.users', ['restangular', 'persona'])
 
 .config(['$routeProvider', function ($routeProvider) {
   $routeProvider
@@ -9,8 +9,13 @@ angular.module('app.users', ['ngResource', 'persona'])
       })
     .when('/user/create-account',
       {
-        controller: 'userFormController',
-        template: '<h1>Please login into Mozilla Persona to begin editing profile.</h1>'
+        controller: 'userNavController',
+        template: "<br><h1>Please login into Mozilla Persona to begin editing profile.</h1>"
+      })
+    .when('/user/no-profile',
+      {
+        controller: 'userNavController',
+        template: "<br><h1>The user doesn't exist.</h1>"
       })
     .when('/users/:id/edit',
       {
@@ -18,27 +23,11 @@ angular.module('app.users', ['ngResource', 'persona'])
         templateUrl: '/users/edit.ng'
       })
 }])
-
-.factory('Users', function($resource) {
-  return $resource('/users', {}, {
-    query:  { method: 'GET', isArray: true},
-    create: { method: 'POST' }
-  });
-})
-
-.factory('User', function($resource) {
-  return $resource('/users/:id', {}, {
-    save: { method: 'PATCH' }
-  });
-})
-
 .controller('userNavController', function($scope, $location, personaSvc) {
   $scope.edit = function() {
     console.log('userNavController#edit');
     personaSvc.status().then( function(data) {
-      console.log(data);
       if(data.id) {
-        // Angular style redirect
         $location.path('/users/' + data.id + '/edit');
       } else {
         $location.path('/user/create-account');
@@ -46,31 +35,35 @@ angular.module('app.users', ['ngResource', 'persona'])
     });
   }
 })
-
-.controller('userController', function($scope, $routeParams, User, Users) {
+.controller('userController', function($scope, $routeParams, $location, Restangular) {
   console.log('userController');
-  if ($routeParams.id) {
-    $scope.user = User.get({ id: $routeParams.id });
-  } else {
-    $scope.user = {}; 
-    $scope.users = Users.query( function() {
-      console.log($scope.users);
-    });
-  } 
-})
 
-.controller('userFormController', function($scope, $routeParams, $location, User, Users) {
+  $scope.user = {}; 
+  if ($routeParams.id) {
+    $scope.user = Restangular.one('users', $routeParams.id).get().then( function successCallback(restData) {
+      $scope.user = restData;
+    }, function errorCallback() {
+      $location.path('/user/no-profile');
+    });
+  } else {
+    $location.path('/user/no-profile');
+  }
+})
+.controller('userFormController', function($scope, $routeParams, $location, Restangular) {
   console.log('usersFormController');
 
   if ($routeParams.id) {
-    $scope.user = User.get({ id: $routeParams.id });
+    $scope.user = Restangular.one('users', $routeParams.id).get().then( function(restData) {
+      $scope.user = restData;
+    });
   } else {
     $scope.user = {}; 
   } 
-
   $scope.update = function() {
-    console.log('submitting the user');
-    console.log($scope.user);
-    $scope.user.$save({ id: $scope.user.id });
+    console.log('userNavController#update');
+    $scope.user.patch().then( function(data) {
+      // Redirect to the user view page
+      $location.path('/users/' + $scope.user.id);
+    });
   }  
 });

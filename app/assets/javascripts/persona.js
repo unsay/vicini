@@ -33,7 +33,7 @@ angular.module("persona").factory("personaSvc", ["$http", "$q", function($http, 
     verify: function() {
       var deferred = $q.defer();
       navigator.id.get(function(assertion) {
-        $http.post("/auth/persona/callback.json", {
+        $http.post("/auth/persona/callback?format=json", {
           assertion: assertion
         }).then(function(response) {
           if (response.data.status != "okay") {

@@ -30,15 +30,19 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
-  gem 'pry'
+  gem 'pry-rails'
   gem 'pry-awesome_print'
   gem 'quiet_assets'
   gem 'rails_view_annotator'
   gem 'thin'
 end
 
-group :test do
+group :development, :test do
   gem 'factory_girl_rails'
+  gem 'faker'
+end
+
+group :test do
   gem 'rspec-rails'
   gem 'rspec_candy'
   gem 'shoulda-matchers'

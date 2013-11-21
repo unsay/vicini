@@ -20,19 +20,19 @@ angular.module('app.addresses', ['ngRoute'])
       })
 }])
 
-.controller('addressController', function($scope, $routeParams) {
+.controller('addressController', ['$scope', '$routeParams', function($scope, $routeParams) {
   console.log('addressController');
   var id = $routeParams.id;
   $scope.address = Address.get({ id: id });
-})
+}])
 
-.controller('addressNavController', function($scope, $location) {
+.controller('addressNavController', ['$scope', '$location', function($scope, $location) {
   $scope.edit = function() {
     $location.path('/addresses/new');
   }
-})
+}])
 
-.controller('addressFormController', function($scope, $routeParams, $location, Restangular) {
+.controller('addressFormController', ['$scope', '$routeParams', '$location', 'Restangular', function($scope, $routeParams, $location, Restangular) {
   console.log('addressesFormController');
 
   if ($routeParams.id) {
@@ -52,4 +52,4 @@ angular.module('app.addresses', ['ngRoute'])
       });
     }
   }  
-});
+}]);

@@ -9,11 +9,11 @@ angular.module('app.directory', [])
       })
 }])
 
-.controller('directoryController', function($scope) {
-})
+.controller('directoryController', ['$scope', function($scope) {
+}])
 
-.controller('directoryNavController', function($scope, $location) {
+.controller('directoryNavController', ['$scope', '$location', function($scope, $location) {
   $scope.index = function() {
     $location.path('/directory');
   }
-});
+}]);

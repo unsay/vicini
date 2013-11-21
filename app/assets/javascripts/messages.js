@@ -19,17 +19,17 @@ angular.module('app.messages', [])
       })
 }])
 
-.factory('Messages', function($resource) {
+.factory('Messages', ['$resource', function($resource) {
   return $resource('/messages', {}, {
     create: { method: 'POST' }
   });
-})
+}])
 
-.controller('messagesController', function($scope, Messages) {
+.controller('messagesController', ['$scope', 'Messages', function($scope, Messages) {
   console.log('messagesController');
-})
+}])
 
-.controller('messageFormController', function($scope, $routeParams, $location, Messages) {
+.controller('messageFormController', ['$scope', '$routeParams', '$location', 'Messages', function($scope, $routeParams, $location, Messages) {
   console.log('messageFormController');
 
   $scope.message = {}; 
@@ -40,17 +40,17 @@ angular.module('app.messages', [])
       $location.path('/messages');
     })
   }  
-})
+}])
 
-.controller('messageNavController', function($scope, $location) {
+.controller('messageNavController', ['$scope', '$location', function($scope, $location) {
   $scope.new = function() {
     $location.path('/messages/new');
   }
-})
+}])
 
-.controller('messageController', function($scope, $routeParams, Project) {
+.controller('messageController', ['$scope', '$routeParams', 'Project', function($scope, $routeParams, Project) {
   console.log('messageController');
   var id = $routeParams.id;
   $scope.project = Project.get({ id: id });
-});
+}]);
 

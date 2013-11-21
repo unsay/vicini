@@ -23,7 +23,8 @@ angular.module('app.users', ['restangular', 'persona'])
         templateUrl: '/users/edit.ng'
       })
 }])
-.controller('userNavController', function($scope, $location, personaSvc) {
+
+.controller('userNavController', ['$scope', '$location', 'personaSvc', function($scope, $location, personaSvc) {
   $scope.edit = function() {
     console.log('userNavController#edit');
     personaSvc.status().then( function(data) {
@@ -34,8 +35,9 @@ angular.module('app.users', ['restangular', 'persona'])
       }
     });
   }
-})
-.controller('userController', function($scope, $routeParams, $location, Restangular) {
+}])
+
+.controller('userController', ['$scope', '$routeParams', '$location', 'Restangular',  function($scope, $routeParams, $location, Restangular) {
   console.log('userController');
 
   $scope.user = {}; 
@@ -48,8 +50,9 @@ angular.module('app.users', ['restangular', 'persona'])
   } else {
     $location.path('/user/no-profile');
   }
-})
-.controller('userFormController', function($scope, $routeParams, $location, Restangular) {
+}])
+
+.controller('userFormController', ['$scope', '$routeParams', '$location', 'Restangular', function($scope, $routeParams, $location, Restangular) {
   console.log('usersFormController');
 
   if ($routeParams.id) {
@@ -66,4 +69,4 @@ angular.module('app.users', ['restangular', 'persona'])
       $location.path('/users/' + $scope.user.id);
     });
   }  
-});
+}]);

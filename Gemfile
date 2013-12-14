@@ -23,7 +23,6 @@ gem 'neat', '~> 1.4.0'
 gem 'sass-rails', '~> 4.0.1'
 gem 'simple_form', '~> 3.0.0'
 gem 'sorcery', '~> 0.8.4'
-gem 'turbolinks', '~> 1.3.0'
 gem 'uglifier', '~> 2.3.0'
 
 group :development do
